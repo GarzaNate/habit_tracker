@@ -4,10 +4,12 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 import habitRoute from './routes/habitRoute.js';
+import userRoute from './routes/userRoute.js';
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
+const MONGO_URI = process.env.MONGO_URI;
 
 // Middleware
 app.use(express.json());
@@ -18,14 +20,13 @@ app.use('/api/habits', habitRoute);
 app.use('/api/users', userRoute);
 
 // Database connection
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
+    useUnifiedTopology: true
 }).then(() => {
     app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
+        console.log(`✅ Server running on port ${PORT}`);
     });
 }).catch((error) => {
-    console.log(error.message);
+    console.error("❌ MongoDB connection error:", error.message);
 });
