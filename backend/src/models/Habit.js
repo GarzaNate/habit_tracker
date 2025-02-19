@@ -22,7 +22,7 @@ const habitSchema = new mongoose.Schema({
         default: 0
     },
     userId: {
-        type: mongoose.Schema.Types.ObjectId,  // ✅ References User model
+        type: mongoose.Schema.Types.ObjectId,  // References User model
         ref: "User",
         required: true
     },

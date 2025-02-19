@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-import habitRoute from './routes/habitRoute.js';
-import userRoute from './routes/userRoute.js';
+// import habitRoute from './routes/habitRoute.js';
+// import userRoute from './routes/userRoute.js';
 
 dotenv.config();
 const app = express();
@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-app.use('/api/habits', habitRoute);
-app.use('/api/users', userRoute);
+// app.use('/api/habits', habitRoute);
+// app.use('/api/users', userRoute);
 
 // Database connection
 mongoose.connect(MONGO_URI, {
