@@ -21,11 +21,11 @@ const habitSchema = new mongoose.Schema({
         required: true,
         default: 0
     },
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,  // References User model
-        ref: "User",
-        required: true
-    },
+    // userId: {
+    //     type: mongoose.Schema.Types.ObjectId,  // References User model
+    //     ref: "User",
+    //     required: true
+    // },
     createdAt: {
         type: Date,
         default: Date.now

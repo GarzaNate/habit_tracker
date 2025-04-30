@@ -4,7 +4,7 @@ import Habit from "../models/Habit.js";
 export const createHabit = async (req, res) => {
     try {
         const { name, frequency, goal } = req.body;
-        const userId = req.user._id;
+        // const userId = req.user._id;
         const habit = new Habit({ name, frequency, goal, userId });
         await habit.save();
         res.status(201).json(habit);
