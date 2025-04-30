@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-// import habitRoute from './routes/habitRoute.js';
+import habitRoute from './routes/habitRoute.js';
 // import userRoute from './routes/userRoute.js';
 
 dotenv.config();
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-// app.use('/api/habits', habitRoute);
+app.use('/api/habits', habitRoute);
 // app.use('/api/users', userRoute);
 
 // Database connection
