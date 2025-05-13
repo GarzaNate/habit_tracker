@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-// USE ".js" EXTENSION FOR JS FILES
 import habitRoute from './routes/habitRoute.js';
 // import userRoute from './routes/userRoute.js';
 

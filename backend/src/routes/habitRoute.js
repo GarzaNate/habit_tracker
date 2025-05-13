@@ -3,9 +3,10 @@ import { createHabit, getHabits, getHabit, updateHabit, deleteHabit } from '../c
 import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = express.Router();
+router.use(authMiddleware);
 
 // Create a new habit
-router.post('/habit', authMiddleware, createHabit);
+router.post('/habit', createHabit);
 
 // Update a habit
 router.put('/habit:id', updateHabit);
