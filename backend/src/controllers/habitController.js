@@ -4,9 +4,11 @@ import Habit from "../models/Habit.js";
 export const createHabit = async (req, res) => {
     try {
         const { name, frequency, goal } = req.body;
-        const habit = new Habit({ name, frequency, goal, user: req.user._id });
+        const userId = req.user._id;
+        const habit = new Habit({ name, frequency, goal, user: userId });
         await habit.save();
         res.status(201).json(habit);
+        console.log("Habit created successfully by: ", req.user.username);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
@@ -17,9 +19,9 @@ export const getHabits = async (req, res) => {
     try {
         const userId = req.user._id;
         const habits = await Habit.find
-            ({ userId });
+            ({ user: userId });
         res.status(200).json(habits);
-
+        console.log("Habits retrieved successfully from: ", req.user.username);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }

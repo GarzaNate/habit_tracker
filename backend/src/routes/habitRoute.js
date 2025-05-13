@@ -6,18 +6,18 @@ const router = express.Router();
 router.use(authMiddleware);
 
 // Create a new habit
-router.post('/habit', createHabit);
+router.post('/', createHabit);
 
 // Update a habit
-router.put('/habit:id', updateHabit);
+router.put('/:id', updateHabit);
 
 // Get all habits from logged in user
-router.get('/habits', getHabits);
+router.get('/', getHabits);
 
 // Get a single habit by id
-router.get('/habit:id', getHabit);
+router.get('/:id', getHabit);
 
 // Delete a habit
-router.delete('/habit:id', deleteHabit);
+router.delete('/:id', deleteHabit);
 
 export default router;
