@@ -4,7 +4,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 import habitRoute from './routes/habitRoute.js';
-// import userRoute from './routes/userRoute.js';
+import userRoute from './routes/userRoute.js';
+import authRoute from './routes/authRoute.js';
 
 dotenv.config();
 const app = express();
@@ -17,7 +18,8 @@ app.use(cors());
 
 // Routes
 app.use('/api/habits', habitRoute);
-// app.use('/api/users', userRoute);
+app.use('/api/users', userRoute);
+app.use('/api/auth', authRoute);
 
 // Database connection
 mongoose.connect(MONGO_URI, {

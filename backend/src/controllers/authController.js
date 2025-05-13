@@ -1,19 +1,19 @@
 import User from "../models/User.js";
 
 export const registerUser = async (req, res) => {
-    const { name, email, password } = req.body;
+    const { username, email, password } = req.body;
     try {
-        const userExists = await User.find({ email });
+        const userExists = await User.findOne({ email });
         if (userExists) {
             return res.status(400).json({ message: "User already exists" });
         }
-        const user = new User({ name, email, password });
+        const user = new User({ username, email, password });
         await user.save();
 
         const token = user.getSignedJwtToken();
         res.status(201).json({
             _id: user._id,
-            name: user.name,
+            name: user.username,
             email: user.email,
             token
         });
@@ -36,8 +36,9 @@ export const loginUser = async (req, res) => {
         }
         const token = user.getSignedJwtToken();
         res.status(200).json({
+            message: "User logged in successfully",
             _id: user._id,
-            name: user.name,
+            name: user.username,
             email: user.email,
             token
         });
@@ -46,3 +47,4 @@ export const loginUser = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 }
+
