@@ -69,4 +69,3 @@ export const deleteHabit = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 }
-// Increment habit streak ??
