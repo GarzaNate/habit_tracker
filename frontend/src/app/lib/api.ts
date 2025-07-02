@@ -6,6 +6,7 @@ export async function login (email: string, password: string) {
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include', // Include cookies for session management
     body: JSON.stringify({ email, password }),
   });
 
@@ -22,6 +23,7 @@ export async function register (username: string, email: string, password: strin
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include', // Include cookies for session management
     body: JSON.stringify({ username, email, password }),
   });
 
