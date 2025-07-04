@@ -36,7 +36,7 @@ const Login = () => {
       setError("Login failed. Please check your credentials.");
       setLoading("");
     }
-    console.log("Logging in with:", { email, password });
+    console.log("Logging in with:", { email });
   };
 
   return (
